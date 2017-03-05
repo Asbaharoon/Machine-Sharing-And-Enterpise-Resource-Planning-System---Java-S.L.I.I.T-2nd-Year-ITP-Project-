@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aea4a297-17a6-49c8-9ccd-846ea0d1a9da">
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     expensebudget.`ID` AS expensebudget_ID,
+     expensebudget.`Frombud` AS expensebudget_Frombud,
+     expensebudget.`Tobud` AS expensebudget_Tobud,
+     expensebudget.`budproductioncharges` AS expensebudget_budproductioncharges,
+     expensebudget.`budsalaries` AS expensebudget_budsalaries,
+     expensebudget.`budtravelling` AS expensebudget_budtravelling,
+     expensebudget.`budrepair` AS expensebudget_budrepair,
+     expensebudget.`budwater` AS expensebudget_budwater,
+     expensebudget.`budelectricity` AS expensebudget_budelectricity,
+     expensebudget.`budinsurance` AS expensebudget_budinsurance,
+     expensebudget.`budrent` AS expensebudget_budrent,
+     expensebudget.`budsecurity` AS expensebudget_budsecurity,
+     expensebudget.`budcommunication` AS expensebudget_budcommunication,
+     expensebudget.`budfurniture` AS expensebudget_budfurniture,
+     expensebudget.`budother` AS expensebudget_budother
+FROM
+     `expensebudget` expensebudget]]>
+	</queryString>
+	<field name="expensebudget_ID" class="java.lang.Integer"/>
+	<field name="expensebudget_Frombud" class="java.lang.String"/>
+	<field name="expensebudget_Tobud" class="java.lang.String"/>
+	<field name="expensebudget_budproductioncharges" class="java.lang.Double"/>
+	<field name="expensebudget_budsalaries" class="java.lang.Double"/>
+	<field name="expensebudget_budtravelling" class="java.lang.Double"/>
+	<field name="expensebudget_budrepair" class="java.lang.Double"/>
+	<field name="expensebudget_budwater" class="java.lang.Double"/>
+	<field name="expensebudget_budelectricity" class="java.lang.Double"/>
+	<field name="expensebudget_budinsurance" class="java.lang.Double"/>
+	<field name="expensebudget_budrent" class="java.lang.Double"/>
+	<field name="expensebudget_budsecurity" class="java.lang.Double"/>
+	<field name="expensebudget_budcommunication" class="java.lang.Double"/>
+	<field name="expensebudget_budfurniture" class="java.lang.Double"/>
+	<field name="expensebudget_budother" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="cdcff5cb-1afb-43a3-9acc-a9d2d48e05b5"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="73a66f27-079e-4ffd-8c5a-8bd427dd8e8b"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="7176831d-7fd3-48f9-88a9-550081072985"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry Title]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="557d186a-b9a3-4616-b438-6a45597844af"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry SubTitle]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="c3e079af-7a63-463f-9737-6ba5bd0d2976"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="63739637-213f-408d-8605-e5cdc8570064"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="37" height="18" forecolor="#000000" uuid="6c405228-e7aa-4bf3-b7d6-effa96255b3f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="37" y="7" width="37" height="18" forecolor="#000000" uuid="fff79735-6e92-4082-86b1-1af1ae156788"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_Frombud]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="74" y="7" width="37" height="18" forecolor="#000000" uuid="e52594ed-d069-413e-828f-ca2ed716a649"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_Tobud]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="7" width="37" height="18" forecolor="#000000" uuid="5c5b692b-74aa-4592-ae01-5c735fa2b5e0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budproductioncharges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="148" y="7" width="37" height="18" forecolor="#000000" uuid="7152e099-5a09-4e21-81de-59d572ec8638"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budsalaries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="185" y="7" width="37" height="18" forecolor="#000000" uuid="0e15f970-a34d-4c70-a85e-5a040f50957b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budtravelling]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="7" width="37" height="18" forecolor="#000000" uuid="dad968f1-9a76-4aee-8343-a8093d83d536"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budrepair]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="259" y="7" width="37" height="18" forecolor="#000000" uuid="13a9ddf0-b22d-4c68-9682-a94f065b8844"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budwater]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="296" y="7" width="37" height="18" forecolor="#000000" uuid="4de658d8-412d-44cc-80d5-b9941c6b8e30"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budelectricity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="7" width="37" height="18" forecolor="#000000" uuid="28a1af22-c60f-43dd-ba05-7e6ac820cd4c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budinsurance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="7" width="37" height="18" forecolor="#000000" uuid="7d884dc6-0b17-4d89-818e-a416603bfa1d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budrent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="407" y="7" width="37" height="18" forecolor="#000000" uuid="ed121f63-c04d-4120-a812-b927a0adae9a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budsecurity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="7" width="37" height="18" forecolor="#000000" uuid="8b057848-930f-4f01-a901-bf4069ba0ee7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budcommunication]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="481" y="7" width="37" height="18" forecolor="#000000" uuid="9687fb09-ea47-4457-b214-26c8fc97f557"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budfurniture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="518" y="7" width="37" height="18" forecolor="#000000" uuid="9cc48646-d231-4969-b610-f8f0cb64cc77"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[expensebudget_budother]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="77ebb349-6402-4e2d-9d65-da9d74e17a26"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="37" height="18" uuid="1f308ae6-48d5-402b-a4fc-dd2ff58f1d05"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_ID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="37" y="0" width="37" height="18" uuid="0da9bb6c-9a18-43d0-a568-ae8936587240"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_Frombud}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="74" y="0" width="37" height="18" uuid="93de02d2-192a-4e90-b1ff-07d897e19729"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_Tobud}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="111" y="0" width="37" height="18" uuid="54776dbe-d28b-4ddd-bcc7-f4142d0ccb6a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budproductioncharges}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="148" y="0" width="37" height="18" uuid="9e160e93-bb13-4539-b50f-91074d26f13b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budsalaries}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="185" y="0" width="37" height="18" uuid="e8ac7e94-e095-4786-9508-d659720aeb4b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budtravelling}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="222" y="0" width="37" height="18" uuid="e032c6ff-8824-49d9-91ea-69d13f3ba14e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budrepair}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="259" y="0" width="37" height="18" uuid="3f543302-f85a-46a7-aa03-ba0112530efb"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budwater}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="296" y="0" width="37" height="18" uuid="0d171067-3fcb-4003-82b0-39c1cc69b7f8"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budelectricity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="333" y="0" width="37" height="18" uuid="e226cd6e-19c8-456c-84e5-d2e27fefc751"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budinsurance}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="370" y="0" width="37" height="18" uuid="48a4e510-5312-4f8e-b891-ef7e73d4729e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budrent}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="407" y="0" width="37" height="18" uuid="f1c38622-9326-4f70-b73d-e5f89ee5106f"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budsecurity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="444" y="0" width="37" height="18" uuid="2ce4285d-a4b1-4bf7-8f2e-20f63706fa82"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budcommunication}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="481" y="0" width="37" height="18" uuid="ed8ac6e8-3e5c-429d-91cb-5988751f2091"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budfurniture}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="518" y="0" width="37" height="18" uuid="f0fa2529-2a29-4913-a106-025a1140fd1d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expensebudget_budother}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="abf47052-75bc-4028-bc76-e9d40a1498d6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="1f1dd8b0-6a7c-41b9-a918-5b259acac47e"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="2aec11e8-470d-4650-a8f0-c65a54f8cd47"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="7f169ca1-0ea1-402e-bf3e-9d561a4863eb"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="2a745657-4eed-4f85-98a3-4968dd47cb93"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

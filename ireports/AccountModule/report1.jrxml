@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="1190" pageHeight="842" orientation="Landscape" columnWidth="1150" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea8b733a-5ce5-4995-b01a-81fffa82cebe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     expenseactual.`Id` AS expenseactual_Id,
+     expenseactual.`Date` AS expenseactual_Date,
+     expenseactual.`productioncharges` AS expenseactual_productioncharges,
+     expenseactual.`salaries` AS expenseactual_salaries,
+     expenseactual.`travelling` AS expenseactual_travelling,
+     expenseactual.`repair` AS expenseactual_repair,
+     expenseactual.`water` AS expenseactual_water,
+     expenseactual.`insurance` AS expenseactual_insurance,
+     expenseactual.`rent` AS expenseactual_rent,
+     expenseactual.`electricity` AS expenseactual_electricity,
+     expenseactual.`security` AS expenseactual_security,
+     expenseactual.`communication` AS expenseactual_communication,
+     expenseactual.`furniture` AS expenseactual_furniture,
+     expenseactual.`other` AS expenseactual_other,
+     expenseactual.`totalexpense` AS expenseactual_totalexpense,
+     expenseactual.`totalbudget` AS expenseactual_totalbudget
+FROM
+     `expenseactual` expenseactual]]>
+	</queryString>
+	<field name="expenseactual_Id" class="java.lang.Integer"/>
+	<field name="expenseactual_Date" class="java.lang.String"/>
+	<field name="expenseactual_productioncharges" class="java.lang.Double"/>
+	<field name="expenseactual_salaries" class="java.lang.Double"/>
+	<field name="expenseactual_travelling" class="java.lang.Double"/>
+	<field name="expenseactual_repair" class="java.lang.Double"/>
+	<field name="expenseactual_water" class="java.lang.Double"/>
+	<field name="expenseactual_insurance" class="java.lang.Double"/>
+	<field name="expenseactual_rent" class="java.lang.Double"/>
+	<field name="expenseactual_electricity" class="java.lang.Double"/>
+	<field name="expenseactual_security" class="java.lang.Double"/>
+	<field name="expenseactual_communication" class="java.lang.Double"/>
+	<field name="expenseactual_furniture" class="java.lang.Double"/>
+	<field name="expenseactual_other" class="java.lang.Double"/>
+	<field name="expenseactual_totalexpense" class="java.lang.Double"/>
+	<field name="expenseactual_totalbudget" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="122" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="218" y="12" width="370" height="66" forecolor="#000000" uuid="f1531e7c-68ae-40d2-bed9-386f313a3c8e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Expense Report]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="78" width="1148" height="32" forecolor="#000000" backcolor="#CC0000" uuid="523dbaaf-6de2-4094-9bb5-50464b5a030b"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="bdaa92c0-dad8-4755-bedc-065090374729"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="49" height="18" forecolor="#000000" uuid="722b539a-9735-49a7-a239-43de9b0d1c98"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="49" y="0" width="49" height="18" forecolor="#000000" uuid="f76d8b62-1950-47f7-bb83-863eb609743f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="132" y="0" width="80" height="18" forecolor="#000000" uuid="e1f1bd89-8cc3-44b8-8bee-6ce24405ef96"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pro.charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="212" y="0" width="49" height="18" forecolor="#000000" uuid="d036e1a6-d814-4064-8317-c2cf35e976b8"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Salaries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="278" y="0" width="59" height="18" forecolor="#000000" uuid="892d22d8-b187-4d73-ae6e-13f67c5f8c26"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Travelling]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="353" y="0" width="49" height="18" forecolor="#000000" uuid="e0ac5332-67be-4fd3-983e-7565e64883b1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Repair]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="429" y="0" width="49" height="18" forecolor="#000000" uuid="28d94d6b-ec99-4ebc-b086-1faa6e55097b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Water]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="506" y="0" width="60" height="18" forecolor="#000000" uuid="66d810d7-4e63-4d27-ba42-10b54e0e281e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insurance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="588" y="0" width="49" height="18" forecolor="#000000" uuid="92ab07ee-e35c-4931-a0a9-06619c043e1b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="658" y="0" width="60" height="18" forecolor="#000000" uuid="31a143d3-1978-42f4-90ce-974bff3adba2"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Electricity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="736" y="0" width="49" height="18" forecolor="#000000" uuid="90e8ff6c-0f94-4ca4-ab3f-4aad905bd872"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Security]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="797" y="0" width="99" height="18" forecolor="#000000" uuid="1268ac5d-fc74-4d21-8642-b61cfd25d76c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Communication]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="896" y="0" width="56" height="18" forecolor="#000000" uuid="4f01bea4-8781-4c7e-a163-7ed060ca9e12"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Furniture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="952" y="0" width="49" height="18" forecolor="#000000" uuid="cd14962f-bcea-4082-9d2f-61ae459683c0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Other]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1017" y="0" width="84" height="18" forecolor="#000000" uuid="58e2f3df-081e-434c-a651-5fa8353bef6d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[TotalExpense]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1101" y="0" width="49" height="18" forecolor="#000000" uuid="fdd3cb99-d09c-461d-abf3-79fead7257aa"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Budget]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="55e917b4-6fe4-4f59-a58d-fdbe91b12672"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="49" height="18" uuid="40fd158d-3ac4-4b6c-9779-78c95407564a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_Id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="49" y="0" width="68" height="18" uuid="8b6bb000-a87c-42ad-8421-b6b882d3aa1a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_Date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="132" y="0" width="80" height="18" uuid="f9f02426-6893-4f95-b452-4ea0fd6e84c1"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_productioncharges}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="212" y="0" width="66" height="18" uuid="6a9dabdc-3e76-4527-bb60-c54bd54377ca"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_salaries}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="278" y="0" width="75" height="18" uuid="61131399-2ea8-487e-8ec6-3e709c3ea389"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_travelling}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="353" y="0" width="76" height="18" uuid="d98ea3a7-3be9-421b-af4e-30801e2145f9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_repair}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="429" y="0" width="77" height="18" uuid="9c001144-084d-410f-a275-0c67622f7f5d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_water}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="506" y="0" width="82" height="18" uuid="6be9e4a5-8716-46d3-9c2d-7390bd226966"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_insurance}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="588" y="0" width="70" height="18" uuid="0f606218-ca82-4ed5-a878-9e6cfc0444af"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_rent}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="658" y="0" width="78" height="18" uuid="801a4fa1-1c59-4524-ab60-e4317dba8491"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_electricity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="736" y="0" width="61" height="18" uuid="70d17b96-eaad-4a1f-995c-d27f2dd9a557"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expenseactual_security}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="1101" y="0" width="65" height="18" uuid="4d982fb5-a3f9-40e9-b880-22b5886655e2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expenseactual_totalbudget}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="1017" y="0" width="84" height="18" uuid="80c6f09f-425d-4136-82f5-c66afeb44a0e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expenseactual_totalexpense}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="952" y="0" width="65" height="18" uuid="b9d84750-37e9-43ee-9b44-66f59634865c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expenseactual_other}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="896" y="0" width="56" height="18" uuid="980e6c8e-7fda-42ce-aa79-7cbfe69ffe9d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expenseactual_furniture}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="797" y="0" width="80" height="18" uuid="f194fe50-84a8-4c08-bf3e-3c66249899cd"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expenseactual_communication}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="231d441a-a771-4bae-a791-e040e2e0e711"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="108" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="af37770a-ee08-4897-a270-3c8ee03b205b"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="58db543e-a00c-4cc5-a741-6ef008828cb0"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="9b69edc0-58f6-4dbc-97db-0c02b404b009"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="6443b883-e633-4375-be1a-8596af33435c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
